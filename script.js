@@ -1,14 +1,19 @@
 // Alternar abas principais
 function openMainTab(tabId) {
+    // Esconde todos os containers e remove classe ativa dos botões
     document.querySelectorAll('.main-container').forEach(c => c.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     
-    document.getElementById(tabId).classList.add('active');
+    // Ativa o container selecionado
+    const targetContainer = document.getElementById(tabId);
+    if (targetContainer) targetContainer.classList.add('active');
     
-    // Sincroniza o botão ativo
+    // Ativa o botão correto procurando pelo atributo onclick que contém o tabId
     const btns = document.querySelectorAll('.tab-btn');
     btns.forEach(btn => {
-        if(btn.innerText.toLowerCase().includes(tabId.substring(0,3))) btn.classList.add('active');
+        if (btn.getAttribute('onclick').includes(`'${tabId}'`)) {
+            btn.classList.add('active');
+        }
     });
 }
 
@@ -65,4 +70,37 @@ function handlePayment() {
 
 window.onclick = function(event) {
     if (event.target == document.getElementById('modal')) closeModal();
+}
+let currentPrice = 0;
+
+// Atualiza a função openCheckout para armazenar o valor
+function openCheckout(name, price) {
+    currentPrice = price;
+    document.getElementById('modal-title').innerText = name;
+    document.getElementById('modal-price').innerText = "Valor: R$ " + price.toFixed(2).replace('.', ',');
+    
+    // Reseta o modal
+    document.getElementById('pix-qr-container').style.display = 'none';
+    document.getElementById('main-action-btn').style.display = 'block';
+    document.getElementById('player-id').value = "";
+    
+    document.getElementById('modal').style.display = 'flex';
+}
+
+function generatePix() {
+    const id = document.getElementById('player-id').value;
+    if(!id) return alert("Por favor, informe seu ID do jogo!");
+
+    // Chave Pix e Valor
+    const pixKey = "augusto.mantai@live.com";
+    
+    // Gerando URL do QR Code (Exemplo visual via API de QR Code)
+    // Nota: Este QR Code redireciona para um link de pagamento ou texto da chave
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ChavePix:${pixKey}-Valor:R$${currentPrice}-ID:${id}`;
+
+    document.getElementById('pix-qr-img').src = qrUrl;
+    document.getElementById('pix-qr-container').style.display = 'block';
+    document.getElementById('main-action-btn').style.display = 'none'; // Esconde o botão após gerar
+    
+    alert("QR Code Gerado! Após o pagamento, envie o comprovante no Discord.");
 }

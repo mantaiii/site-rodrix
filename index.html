@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capital Fugas</title>
+    <title>Capital Fugas - Portal Oficial</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -26,39 +26,53 @@
         <button class="tab-btn" onclick="openMainTab('suporte')">SUPORTE & CONTATO</button>
     </nav>
 
-    <section id="home" class="main-container active">
-        <div class="presentation-card">
-            <h2>BEM-VINDO AO <span class="text-gradient">CAPITAL FUGAS</span></h2>
-            <p class="server-desc">
-                O <strong>Capital Fugas</strong> é uma referência em servidores de Fuga no MTA:SA. Nosso foco é a adrenalina pura, com perseguições intensas, sistemas de veículos avançados e uma economia voltada para quem gosta de velocidade e estratégia. Explore nossa cidade, monte sua gangue e domine as ruas.
-            </p>
-            <div class="quick-nav-buttons">
-                <button class="action-btn glow-pulse" onclick="openMainTab('loja')">
-                    <i class="fas fa-shopping-cart"></i> EXPLORAR LOJA OFICIAL
-                </button>
-            </div>
+<section id="home" class="main-container active">
+    <div class="presentation-card">
+        <h2>BEM-VINDO AO <span class="text-gradient">CAPITAL FUGAS</span></h2>
+        <p class="server-desc">
+            O <strong>Capital Fugas</strong> é uma referência em servidores de Fuga no MTA:SA...
+        </p>
+        <div class="quick-nav-buttons">
+            <button class="action-btn glow-pulse" onclick="openMainTab('loja')">
+                <i class="fas fa-shopping-cart"></i> EXPLORAR LOJA OFICIAL
+            </button>
         </div>
+    </div>
 
-        <div class="social-grid">
-            <a href="https://discord.gg/SFcU33Rj7e" target="_blank" class="social-card discord">
-                <i class="fab fa-discord"></i>
-                <div class="social-info"><strong>Discord</strong><span>Nossa comunidade principal.</span></div>
-            </a>
-            <a href="https://wa.me/message/SN2X645EB6L6L1" target="_blank" class="social-card whatsapp">
-                <i class="fab fa-whatsapp"></i>
-                <div class="social-info"><strong>WhatsApp</strong><span>Atendimento Vip e Bases.</span></div>
-            </a>
-            <a href="https://www.instagram.com/capitalfugas/" target="_blank" class="social-card instagram">
-                <i class="fab fa-instagram"></i>
-                <div class="social-info"><strong>Instagram</strong><span>Siga para sorteios.</span></div>
-            </a>
-            <a href="https://www.tiktok.com/@capitalfugasoficial" target="_blank" class="social-card tiktok">
-                <i class="fab fa-tiktok"></i>
-                <div class="social-info"><strong>TikTok</strong><span>Melhores momentos.</span></div>
-            </a>
+    <div class="social-grid">
+    <a href="https://discord.gg/SFcU33Rj7e" target="_blank" class="social-card discord">
+        <i class="fab fa-discord"></i>
+        <div class="social-info">
+            <strong>Discord</strong>
+            <span>Nossa comunidade principal.</span>
         </div>
-    </section>
-
+    </a>
+    
+    <a href="https://wa.me/message/SN2X645EB6L6L1" target="_blank" class="social-card whatsapp">
+        <i class="fab fa-whatsapp"></i>
+        <div class="social-info">
+            <strong>WhatsApp</strong>
+            <span>Atendimento Vip e Bases.</span>
+        </div>
+    </a>
+    
+    <a href="https://www.instagram.com/capitalfugas/" target="_blank" class="social-card instagram">
+        <i class="fab fa-instagram"></i>
+        <div class="social-info">
+            <strong>Instagram</strong>
+            <span>Siga para sorteios.</span>
+        </div>
+    </a>
+    
+    <a href="https://www.tiktok.com/@capitalfugasoficial" target="_blank" class="social-card tiktok">
+        <i class="fab fa-tiktok"></i>
+        <div class="social-info">
+            <strong>TikTok</strong>
+            <span>Melhores momentos.</span>
+        </div>
+    </a>
+</div>
+</section>
     <section id="loja" class="main-container">
         <div class="category-selector">
             <button class="cat-btn active" onclick="showCategory('cat-gangues', this)">GANGUES</button>
@@ -248,12 +262,13 @@
         </div>
 
         <div id="cat-ids" class="store-category">
-            <div class="id-card-fixed tab-pane active">
-                <div class="id-info">
-                    <h2>ID PERSONALIZADO</h2>
-                    <p>Garanta um ID único para se destacar no servidor.</p>
+            <div class="presentation-card maintenance-card">
+                <div class="maintenance-icon">
+                    <i class="fas fa-tools animate-wrench"></i>
                 </div>
-                <button class="buy-btn" onclick="openCheckout('ID Personalizado', 80)"><span>VALOR ÚNICO</span><strong>R$ 80,00</strong></button>
+                <h2 class="text-gradient">EM CONSTRUÇÃO</h2>
+                <p>Estamos preparando sistemas exclusivos de <strong>IDs Personalizados</strong> e <strong>Tags de Chat</strong> para você se destacar no servidor.</p>
+                <div class="maintenance-badge">DISPONÍVEL EM BREVE</div>
             </div>
         </div>
     </section>
@@ -270,7 +285,7 @@
             <a href="https://wa.me/message/SN2X645EB6L6L1" target="_blank" class="support-item">
                 <div class="icon-box wa"><i class="fab fa-whatsapp"></i></div>
                 <div class="item-text">
-                    <strong>Atendimento VIP</strong>
+                    <strong>Atendimento sobre os VIPS</strong>
                     <span>Dúvidas sobre pagamentos e ativações.</span>
                 </div>
                 <i class="fas fa-chevron-right arrow"></i>
@@ -301,13 +316,19 @@
     <div class="modal-card">
         <h2 id="modal-title">Finalizar</h2>
         <p id="modal-price" class="final-price"></p>
-        <input type="number" id="player-id" placeholder="DIGITE SEU ID" class="input-field">
-        <button class="confirm-btn" onclick="handlePayment()">GERAR PIX</button>
-        <button class="close-txt" onclick="closeModal()">CANCELAR</button>
+        
+        <input type="text" id="player-id" placeholder="DIGITE SEU ID (EX: @NOME#123)" class="input-field">
+        
+        <div id="pix-qr-container" style="display:none; margin: 20px 0;">
+            <img id="pix-qr-img" src="" alt="QR Code Pix" style="width: 200px; height: 200px; border: 5px solid #fff; border-radius: 10px;">
+            <p style="font-size: 0.8rem; color: #aaa; margin-top: 10px;">Chave: augusto.mantai@live.com</p>
+        </div>
+
+        <button class="confirm-btn" id="main-action-btn" onclick="generatePix()">GERAR PIX</button>
+        <button class="cancel-btn" onclick="closeModal()">CANCELAR</button>
     </div>
 </div>
 
 <script src="script.js"></script>
 </body>
-
 </html>

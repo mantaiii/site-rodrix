@@ -31,11 +31,43 @@ body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 
 
 .subtitle { font-size: 0.75rem; color: var(--accent); letter-spacing: 5px; font-weight: 900; margin-top: 15px; }
 
+/* Esconde todos os containers por padrão */
+.main-container { 
+    display: none; 
+}
+
+/* Mostra apenas o container que tiver a classe 'active' */
+.main-container.active { 
+    display: block; 
+}
+
 /* NAVEGAÇÃO PRINCIPAL */
 .content-wrapper { width: 95%; max-width: 900px; margin: 0 auto; }
 .main-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
 .tab-btn { background: #0a0a0a; border: 1px solid #222; color: #555; padding: 14px 25px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: 0.3s; }
 .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 0 20px rgba(98, 0, 238, 0.4); }
+
+/* Garante que o botão da aba ativa sempre brilhe */
+.tab-btn.active { 
+    background: var(--primary) !important; 
+    color: #fff !important; 
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 20px rgba(98, 0, 238, 0.4);
+    opacity: 1 !important;
+}
+
+/* Força a animação a resetar quando o elemento aparece */
+.glow-pulse {
+    animation: glow 2s infinite;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--primary); transform: scale(1); }
+    50% { box-shadow: 0 0 20px var(--primary); transform: scale(1.02); }
+}
 
 /* CATEGORIAS DA LOJA (GANGUES, VIPS, IDS) */
 .category-selector { display: flex; gap: 15px; margin-bottom: 35px; }
@@ -48,11 +80,6 @@ body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 
 .sub-tab-btn.active { background: #fff; color: #000; }
 
 /* CARDS DE PRODUTO */
-.product-compact-card { display: flex; background: var(--card-bg); border-radius: 18px; height: 380px; overflow: hidden; border: 1px solid #222; margin-bottom: 20px; }
-.card-image { flex: 1; background-size: cover; background-position: center; border-right: 4px solid var(--primary); }
-.card-details { flex: 1.3; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-.card-details h2 { margin: 0; font-size: 1.6rem; color: var(--primary); font-weight: 900; }
-/* CARDS PRODUTOS */
 .product-compact-card { display: flex; background: var(--bg-dark); border-radius: 15px; height: 380px; overflow: hidden; border: 1px solid #222; margin-bottom: 20px; }
 .card-image { flex: 1; background-size: cover; background-position: center; border-right: 4px solid var(--primary); }
 
@@ -85,6 +112,33 @@ body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 
 .plan-btn.active { background: var(--primary); color: #fff; }
 .buy-btn { background: #fff; border: none; padding: 18px; border-radius: 12px; cursor: pointer; transition: 0.3s; }
 .buy-btn strong { display: block; font-size: 1.4rem; color: #000; }
+
+/* Botão Cancelar Estilizado */
+.cancel-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #888;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+/* Ajuste no input para aceitar caracteres especiais visualmente */
+.input-field {
+    text-transform: none; /* Mantém letras minúsculas/especiais como digitadas */
+}
 
 /* APRESENTAÇÃO & SUPORTE ESTILIZADOS */
 .presentation-card { background: var(--card-bg); padding: 45px; border-radius: 20px; border: 1px solid #222; text-align: center; margin-bottom: 30px; position: relative; }
@@ -137,6 +191,43 @@ body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 
 .item-text { flex: 1; text-align: left; }
 .item-text strong { display: block; color: #fff; font-size: 1.1rem; }
 .item-text span { color: #555; font-size: 0.85rem; }
+
+/* ESTILO PARA ABA EM CONSTRUÇÃO */
+.maintenance-card {
+    border: 1px dashed var(--primary); /* Borda tracejada para indicar algo incompleto */
+    background: rgba(98, 0, 238, 0.05);
+    padding: 60px 20px;
+}
+
+.maintenance-icon {
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.maintenance-badge {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 2px;
+}
+
+/* ANIMAÇÃO DA FERRAMENTA */
+.animate-wrench {
+    display: inline-block;
+    animation: wrenchMove 2.5s ease-in-out infinite;
+}
+
+@keyframes wrenchMove {
+    0%, 100% { transform: rotate(-12deg); }
+    50% { transform: rotate(12deg); }
+}
 
 /* FOOTER */
 .minimal-footer { padding: 60px 0 30px; text-align: center; opacity: 0.5; }
