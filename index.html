@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Fugas - Portal Oficial</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="mta-background"></div>
+
+<header class="main-header">
+    <div class="header-content">
+        <img src="images/logos/logo.png" alt="Capital Fugas Logo" class="site-logo animate-logo-float">
+        <p class="subtitle">O MELHOR SERVIDOR DE FUGA DO MTA</p>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <nav class="main-tabs">
+        <button class="tab-btn active" onclick="openMainTab('home')">APRESENTAÇÃO</button>
+        <button class="tab-btn" onclick="openMainTab('loja')">LOJA</button>
+        <button class="tab-btn" onclick="openMainTab('suporte')">SUPORTE & CONTATO</button>
+    </nav>
+
+    <section id="home" class="main-container active">
+        <div class="presentation-card">
+            <h2>BEM-VINDO AO <span class="text-gradient">CAPITAL FUGAS</span></h2>
+            <p class="server-desc">
+                O <strong>Capital Fugas</strong> é uma referência em servidores de Fuga no MTA:SA. Nosso foco é a adrenalina pura, com perseguições intensas, sistemas de veículos avançados e uma economia voltada para quem gosta de velocidade e estratégia. Explore nossa cidade, monte sua gangue e domine as ruas.
+            </p>
+            <div class="quick-nav-buttons">
+                <button class="action-btn glow-pulse" onclick="openMainTab('loja')">
+                    <i class="fas fa-shopping-cart"></i> EXPLORAR LOJA OFICIAL
+                </button>
+            </div>
+        </div>
+
+        <div class="social-grid">
+            <a href="https://discord.gg/SFcU33Rj7e" target="_blank" class="social-card discord">
+                <i class="fab fa-discord"></i>
+                <div class="social-info"><strong>Discord</strong><span>Nossa comunidade principal.</span></div>
+            </a>
+            <a href="https://wa.me/message/SN2X645EB6L6L1" target="_blank" class="social-card whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <div class="social-info"><strong>WhatsApp</strong><span>Atendimento Vip e Bases.</span></div>
+            </a>
+            <a href="https://www.instagram.com/capitalfugas/" target="_blank" class="social-card instagram">
+                <i class="fab fa-instagram"></i>
+                <div class="social-info"><strong>Instagram</strong><span>Siga para sorteios.</span></div>
+            </a>
+            <a href="https://www.tiktok.com/@capitalfugasoficial" target="_blank" class="social-card tiktok">
+                <i class="fab fa-tiktok"></i>
+                <div class="social-info"><strong>TikTok</strong><span>Melhores momentos.</span></div>
+            </a>
+        </div>
+    </section>
+
+    <section id="loja" class="main-container">
+        <div class="category-selector">
+            <button class="cat-btn active" onclick="showCategory('cat-gangues', this)">GANGUES</button>
+            <button class="cat-btn" onclick="showCategory('cat-vips', this)">SISTEMAS VIP</button>
+            <button class="cat-btn" onclick="showCategory('cat-ids', this)">IDS & TAGS</button>
+        </div>
+
+        <div id="cat-gangues" class="store-category active">
+            <div class="sub-nav-store">
+                <button class="sub-tab-btn active" onclick="openSubTab('gang-pequena', 'gang-content', this)">PEQUENA</button>
+                <button class="sub-tab-btn" onclick="openSubTab('gang-media', 'gang-content', this)">MÉDIA</button>
+                <button class="sub-tab-btn" onclick="openSubTab('gang-grande', 'gang-content', this)">GRANDE</button>
+            </div>
+
+            <div id="gang-pequena" class="gang-content active tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-gangue-pequena"></div>
+                    <div class="card-details">
+                        <h2>GANGUE PEQUENA</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 15, '30 Dias')">MENSAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 35, '90 Dias')">TRIMESTRAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 80, 'Anual')">ANUAL</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>QG Mapeado</li>
+                            <li>1 Skin Exclusiva</li>
+                            <li>Arsenal: AK47 + MP5</li>
+                            <li>Set de Vida e Colete</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('Gangue Pequena (30 Dias)', 15)"><span>ADQUIRIR</span><strong class="price-display">R$ 15,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gang-media" class="gang-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-gangue-media"></div>
+                    <div class="card-details">
+                        <h2>GANGUE MÉDIA</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 25, '30 Dias')">MENSAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 60, '90 Dias')">TRIMESTRAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 150, 'Anual')">ANUAL</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>Mapa a sua escolha</li>
+                            <li>2 Skins + 1 Veículo</li>
+                            <li>Arsenal: AK47, MP5, Deagle</li>
+                            <li>3 Tags Personalizadas</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('Gangue Média (30 Dias)', 25)"><span>ADQUIRIR</span><strong class="price-display">R$ 25,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gang-grande" class="gang-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-gangue-grande"></div>
+                    <div class="card-details">
+                        <h2>GANGUE GRANDE</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 35, '30 Dias')">MENSAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 80, '90 Dias')">TRIMESTRAL</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 250, 'Anual')">ANUAL</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>Base de Elite Personalizada</li>
+                            <li>3 Skins + 2 Veículos</li>
+                            <li>Arsenal Full + Sniper</li>
+                            <li>5 Tags Personalizadas</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('Gangue Grande (30 Dias)', 35)"><span>ADQUIRIR</span><strong class="price-display">R$ 35,00</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cat-vips" class="store-category">
+            <div class="sub-nav-store">
+                <button class="sub-tab-btn active" onclick="openSubTab('vip-pro', 'vip-content', this)">PRO</button>
+                <button class="sub-tab-btn" onclick="openSubTab('vip-nobre', 'vip-content', this)">NOBRE</button>
+                <button class="sub-tab-btn" onclick="openSubTab('vip-ostentacao', 'vip-content', this)">OSTENTAÇÃO</button>
+                <button class="sub-tab-btn" onclick="openSubTab('vip-patrao', 'vip-content', this)">PATRÃO</button>
+                <button class="sub-tab-btn" onclick="openSubTab('vip-legendary', 'vip-content', this)">LEGENDARY</button>
+            </div>
+
+            <div id="vip-pro" class="vip-content active tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-vip-pro"></div>
+                    <div class="card-details">
+                        <h2>VIP PRO</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 10, '30 Dias')">30 DIAS</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 30, 'Permanente')">PERMANENTE</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>1 Skin Exclusiva</li>
+                            <li>Arsenal MP5</li>
+                            <li>Acessórios: Asa e Máscara</li>
+                            <li>Salário VIP Diferenciado</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('VIP PRO', 10)"><span>ATIVAR</span><strong class="price-display">R$ 10,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vip-nobre" class="vip-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-vip-nobre"></div>
+                    <div class="card-details">
+                        <h2>VIP NOBRE</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 15, '30 Dias')">30 DIAS</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 40, 'Permanente')">PERMANENTE</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>2 Skins Exclusivas</li>
+                            <li>Arsenal AK47 + Colete</li>
+                            <li>Veículos: 1 Carro + 1 Moto</li>
+                            <li>Prancha VIP</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('VIP NOBRE', 15)"><span>ATIVAR</span><strong class="price-display">R$ 15,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vip-ostentacao" class="vip-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-vip-ostentacao"></div>
+                    <div class="card-details">
+                        <h2>VIP OSTENTAÇÃO</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 25, '30 Dias')">30 DIAS</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 50, 'Permanente')">PERMANENTE</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>Habilidade Superman</li>
+                            <li>Arsenal Sniper / M4</li>
+                            <li>Farol Colorido nos Veículos</li>
+                            <li>Veículo de Elite</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('VIP OSTENTAÇÃO', 25)"><span>ATIVAR</span><strong class="price-display">R$ 25,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vip-patrao" class="vip-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-vip-patrao"></div>
+                    <div class="card-details">
+                        <h2>VIP PATRÃO</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 40, '30 Dias')">30 DIAS</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 70, 'Permanente')">PERMANENTE</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>Blindagem em Veículos</li>
+                            <li>2 Veículos de Luxo</li>
+                            <li>Super Salário</li>
+                            <li>Arsenal Full</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('VIP PATRÃO', 40)"><span>ATIVAR</span><strong class="price-display">R$ 40,00</strong></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vip-legendary" class="vip-content tab-pane">
+                <div class="product-compact-card">
+                    <div class="card-image img-vip-legendary"></div>
+                    <div class="card-details">
+                        <h2>VIP LEGENDARY</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="switchPrice(this, 60, '60 Dias')">60 DIAS</button>
+                            <button class="plan-btn" onclick="switchPrice(this, 99, 'Permanente')">PERMANENTE</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li>Velocidade 5x</li>
+                            <li>Habilidade Jetpack</li>
+                            <li>Carro Anfíbio</li>
+                            <li>Dano Aumentado (+20%)</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('VIP LEGENDARY', 60)"><span>ATIVAR</span><strong class="price-display">R$ 60,00</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cat-ids" class="store-category">
+            <div class="id-card-fixed tab-pane active">
+                <div class="id-info">
+                    <h2>ID PERSONALIZADO</h2>
+                    <p>Garanta um ID único para se destacar no servidor.</p>
+                </div>
+                <button class="buy-btn" onclick="openCheckout('ID Personalizado', 80)"><span>VALOR ÚNICO</span><strong>R$ 80,00</strong></button>
+            </div>
+        </div>
+    </section>
+
+<section id="suporte" class="main-container">
+    <div class="presentation-card">
+        <div class="support-header">
+            <i class="fas fa-headset support-icon"></i>
+            <h2>CENTRAL DE SUPORTE</h2>
+            <p>Precisa de ajuda com uma compra ou denúncia? Escolha um canal abaixo:</p>
+        </div>
+        
+        <div class="contact-methods-v2">
+            <a href="https://wa.me/message/SN2X645EB6L6L1" target="_blank" class="support-item">
+                <div class="icon-box wa"><i class="fab fa-whatsapp"></i></div>
+                <div class="item-text">
+                    <strong>Atendimento VIP</strong>
+                    <span>Dúvidas sobre pagamentos e ativações.</span>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a>
+
+            <a href="https://discord.com/channels/887403133825851452/1364207702422716416" target="_blank" class="support-item">
+                <div class="icon-box dc"><i class="fab fa-discord"></i></div>
+                <div class="item-text">
+                    <strong>Suporte Técnico</strong>
+                    <span>Link direto para o canal de suporte no Discord.</span>
+                </div>
+                <i class="fas fa-chevron-right arrow"></i>
+            </a>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer class="minimal-footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Capital Fugas MTA. Todos os direitos reservados.</p>
+        <div class="footer-line"></div>
+        <span class="dev-tag">O melhor servidor de fuga do Brasil</span>
+    </div>
+</footer>
+
+<div id="modal" class="modal-overlay">
+    <div class="modal-card">
+        <h2 id="modal-title">Finalizar</h2>
+        <p id="modal-price" class="final-price"></p>
+        <input type="number" id="player-id" placeholder="DIGITE SEU ID" class="input-field">
+        <button class="confirm-btn" onclick="handlePayment()">GERAR PIX</button>
+        <button class="close-txt" onclick="closeModal()">CANCELAR</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

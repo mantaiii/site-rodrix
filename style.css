@@ -1,0 +1,163 @@
+:root {
+    --primary: #6200ee;
+    --accent: #ffc107;
+    --bg-dark: rgba(10, 10, 12, 0.98);
+    --card-bg: rgba(15, 15, 18, 0.95);
+}
+
+body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; overflow-x: hidden; }
+
+/* BACKGROUND */
+.mta-background {
+    position: fixed; inset: 0; z-index: -1;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('images/fundo/fundo.jpg') center/cover;
+}
+
+/* LOGO ANIMATION */
+.main-header { text-align: center; padding: 50px 0; }
+.site-logo { 
+    max-width: 240px; 
+    filter: drop-shadow(0 0 15px rgba(98, 0, 238, 0.4)); 
+}
+
+.animate-logo-float {
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 15px rgba(98, 0, 238, 0.4)); }
+    50% { transform: translateY(-10px) scale(1.02); filter: drop-shadow(0 0 25px rgba(98, 0, 238, 0.7)); }
+}
+
+.subtitle { font-size: 0.75rem; color: var(--accent); letter-spacing: 5px; font-weight: 900; margin-top: 15px; }
+
+/* NAVEGAÇÃO PRINCIPAL */
+.content-wrapper { width: 95%; max-width: 900px; margin: 0 auto; }
+.main-tabs { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
+.tab-btn { background: #0a0a0a; border: 1px solid #222; color: #555; padding: 14px 25px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: 0.3s; }
+.tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 0 20px rgba(98, 0, 238, 0.4); }
+
+/* CATEGORIAS DA LOJA (GANGUES, VIPS, IDS) */
+.category-selector { display: flex; gap: 15px; margin-bottom: 35px; }
+.cat-btn { flex: 1; background: #0a0a0a; border: 1px solid #222; color: #fff; padding: 18px; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.4s; text-transform: uppercase; }
+.cat-btn.active { background: var(--primary); border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(98, 0, 238, 0.3); }
+
+/* SUB-ABAS (Bolinhas Minimalistas) */
+.sub-nav-store { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 50px; width: fit-content; margin: 0 auto 30px; }
+.sub-tab-btn { background: transparent; border: none; color: #666; padding: 8px 20px; border-radius: 50px; cursor: pointer; font-size: 0.7rem; font-weight: 800; transition: 0.3s; }
+.sub-tab-btn.active { background: #fff; color: #000; }
+
+/* CARDS DE PRODUTO */
+.product-compact-card { display: flex; background: var(--card-bg); border-radius: 18px; height: 380px; overflow: hidden; border: 1px solid #222; margin-bottom: 20px; }
+.card-image { flex: 1; background-size: cover; background-position: center; border-right: 4px solid var(--primary); }
+.card-details { flex: 1.3; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
+.card-details h2 { margin: 0; font-size: 1.6rem; color: var(--primary); font-weight: 900; }
+/* CARDS PRODUTOS */
+.product-compact-card { display: flex; background: var(--bg-dark); border-radius: 15px; height: 380px; overflow: hidden; border: 1px solid #222; margin-bottom: 20px; }
+.card-image { flex: 1; background-size: cover; background-position: center; border-right: 4px solid var(--primary); }
+
+.img-gangue-pequena { background-image: url('images/Gangues/gangue_pequena.png'); }
+.img-gangue-media { background-image: url('images/Gangues/gangue_media.png'); }
+.img-gangue-grande { background-image: url('images/Gangues/gangue_grande.png'); }
+.img-vip-pro { background-image: url('images/VIPS/vip_pro.png'); }
+.img-vip-nobre { background-image: url('images/VIPS/VIP_NOBRE.png'); }
+.img-vip-ostentacao { background-image: url('images/VIPS/vip_ostentacao.png'); }
+.img-vip-patrao { background-image: url('images/VIPS/vip_patrao.png'); }
+.img-vip-legendary { background-image: url('images/VIPS/vip_legendary.png'); }
+
+.card-details { flex: 1.3; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; }
+.card-details h2 { margin: 0; font-size: 1.5rem; color: var(--primary); font-weight: 900; }
+
+.plan-selector { display: flex; gap: 4px; background: #000; padding: 4px; border-radius: 8px; margin: 10px 0; }
+.plan-btn { flex: 1; background: transparent; border: none; color: #555; padding: 8px; font-size: 0.65rem; font-weight: 800; cursor: pointer; border-radius: 4px; }
+.plan-btn.active { background: var(--primary); color: #fff; }
+
+.benefits-list { padding: 0; list-style: none; font-size: 0.85rem; color: #aaa; }
+.benefits-list li::before { content: "✓ "; color: var(--primary); }
+
+.buy-btn { background: #fff; border: none; padding: 15px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+.buy-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
+.buy-btn strong { display: block; font-size: 1.3rem; color: #000; }
+
+/* BOTOES E PLANOS */
+.plan-selector { display: flex; gap: 5px; background: #000; padding: 5px; border-radius: 10px; margin: 15px 0; }
+.plan-btn { flex: 1; background: transparent; border: none; color: #444; padding: 10px; font-size: 0.65rem; font-weight: 800; cursor: pointer; border-radius: 6px; }
+.plan-btn.active { background: var(--primary); color: #fff; }
+.buy-btn { background: #fff; border: none; padding: 18px; border-radius: 12px; cursor: pointer; transition: 0.3s; }
+.buy-btn strong { display: block; font-size: 1.4rem; color: #000; }
+
+/* APRESENTAÇÃO & SUPORTE ESTILIZADOS */
+.presentation-card { background: var(--card-bg); padding: 45px; border-radius: 20px; border: 1px solid #222; text-align: center; margin-bottom: 30px; position: relative; }
+.badge { background: var(--primary); display: inline-block; padding: 6px 14px; border-radius: 50px; font-size: 0.6rem; font-weight: 900; margin-bottom: 20px; }
+.text-gradient { background: linear-gradient(90deg, var(--primary), #a267ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.action-btn { background: var(--primary); color: #fff; border: none; padding: 15px 30px; border-radius: 10px; font-weight: 900; cursor: pointer; gap: 10px; display: inline-flex; align-items: center; transition: 0.3s; }
+
+/* SOCIAL GRID */
+.social-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.social-card { display: flex; align-items: center; gap: 15px; background: #0a0a0a; padding: 20px; border-radius: 15px; text-decoration: none; border: 1px solid #1a1a1a; transition: 0.3s; }
+.social-card i { font-size: 1.8rem; color: var(--primary); }
+.social-card:hover { border-color: var(--primary); transform: scale(1.02); }
+/* Estilização interna dos cards sociais */
+.social-card .social-info {
+    display: flex;
+    flex-direction: column; /* Coloca a descrição abaixo do título */
+    text-align: left;
+}
+
+.social-card .social-info strong {
+    color: #fff; /* Nome da rede social em branco para máximo destaque */
+    font-size: 1rem;
+    font-weight: 900; /* Peso extra para o título */
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    text-transform: uppercase; /* Deixa o nome da rede em caixa alta */
+}
+
+.social-card .social-info span {
+    color: #888; /* Descrição em cinza para não competir com o título */
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* Efeito de Hover: Quando passar o mouse, a descrição ganha um pouco mais de brilho */
+.social-card:hover .social-info span {
+    color: #bbb;
+    transition: 0.3s ease;
+}
+
+/* SUPORTE V2 */
+.support-icon { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+.contact-methods-v2 { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.support-item { display: flex; align-items: center; background: #050505; padding: 22px; border-radius: 15px; text-decoration: none; border: 1px solid #111; transition: 0.3s; }
+.support-item:hover { border-color: var(--primary); background: #080808; }
+.icon-box { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px; margin-right: 20px; font-size: 1.5rem; }
+.icon-box.wa { background: rgba(37, 211, 102, 0.1); color: #25d366; }
+.icon-box.dc { background: rgba(88, 101, 242, 0.1); color: #5865f2; }
+.item-text { flex: 1; text-align: left; }
+.item-text strong { display: block; color: #fff; font-size: 1.1rem; }
+.item-text span { color: #555; font-size: 0.85rem; }
+
+/* FOOTER */
+.minimal-footer { padding: 60px 0 30px; text-align: center; opacity: 0.5; }
+.footer-line { width: 40px; height: 2px; background: var(--primary); margin: 15px auto; }
+.dev-tag { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; }
+
+/* MODAL */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+.modal-card { background: #0a0a0a; padding: 40px; border-radius: 20px; border: 1px solid var(--primary); text-align: center; width: 100%; max-width: 400px; }
+.input-field { width: 100%; padding: 15px; margin: 20px 0; background: #000; border: 1px solid #222; color: #fff; border-radius: 10px; text-align: center; font-size: 1rem; }
+.confirm-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 15px; border-radius: 10px; font-weight: 900; cursor: pointer; }
+
+/* UTILS */
+.main-container, .store-category, .tab-pane { display: none; }
+.active { display: block; }
+.glow-pulse { animation: glow 2s infinite; }
+@keyframes glow { 0%, 100% { box-shadow: 0 0 5px var(--primary); } 50% { box-shadow: 0 0 20px var(--primary); } }
+
+@media (max-width: 650px) {
+    .product-compact-card { flex-direction: column; height: auto; }
+    .card-image { height: 200px; border-right: none; border-bottom: 4px solid var(--primary); }
+    .category-selector { flex-direction: column; }
+    .social-grid { grid-template-columns: 1fr; }
+}
