@@ -37,24 +37,15 @@
 <div class="layout-container">
     <aside class="sidebar">
         <nav class="side-nav">
-            <p class="nav-title">MENU PRINCIPAL</p>
-            <button class="side-btn active" onclick="navigate('home')">
-                <i class="fas fa-home"></i> Início
-            </button>
-            <button class="side-btn" onclick="navigate('suporte')">
-                <i class="fas fa-headset"></i> Suporte
-            </button>
-
-            <p class="nav-title">LOJA POR CATEGORIAS</p>
-            <button class="side-btn" onclick="navigate('cat-gangues')">
-                <i class="fas fa-users"></i> Gangues
-            </button>
-            <button class="side-btn" onclick="navigate('cat-vips')">
-                <i class="fas fa-crown"></i> Vips
-            </button>
-            <button class="side-btn" onclick="navigate('cat-ids')">
-                <i class="fas fa-id-card"></i> IDs & Tags
-            </button>
+            <p class="nav-title">MENU</p>
+            <button class="side-btn active" onclick="navigate('home')"><i class="fas fa-home"></i> <span>Início</span></button>
+            <p class="nav-title">LOJA CAPITAL FUGAS</p>
+            <button class="side-btn" onclick="navigate('cat-vips')"><i class="fas fa-crown"></i> <span>Vips</span></button>
+            <button class="side-btn" onclick="navigate('cat-corps')"><i class="fas fa-shield"></i> <span>Corps</span></button>
+            <button class="side-btn" onclick="navigate('cat-gangues')"><i class="fas fa-users"></i> <span>Gangues</span></button>
+            <button class="side-btn" onclick="navigate('cat-ids')"><i class="fas fa-portrait"></i> <span>Tags</span></button>
+            <p class="nav-title">AJUDA</p>
+            <button class="side-btn" onclick="navigate('suporte')"><i class="fas fa-headset"></i> <span>Suporte</span></button>
         </nav>
     </aside>
 
@@ -67,7 +58,7 @@
                         O <strong>Capital Fugas</strong> é uma referência em servidores de Fuga no MTA:SA. Nosso foco é a adrenalina pura, com perseguições intensas, sistemas de veículos avançados e uma economia voltada para quem gosta de velocidade e estratégia.
                     </p>
                     <div class="quick-nav-buttons">
-                        <button class="action-btn-primary glow-pulse" onclick="navigate('cat-gangues')">
+                        <button class="action-btn-primary glow-pulse" onclick="navigate('cat-vips')">
                             <i class="fas fa-shopping-cart"></i> 
                             <span>ACESSAR LOJA AGORA</span>
                         </button>
@@ -94,87 +85,152 @@
                 </a>
             </div>
         </section>
-
+       
         <section id="cat-gangues" class="main-container">
-            <h2 class="text-gradient">LOJA DE GANGUES</h2>
-            <div class="sub-nav-store">
-                <button class="sub-tab-btn active" onclick="openSubTab('gang-pequena', 'gang-content', this)">PEQUENA</button>
-                <button class="sub-tab-btn" onclick="openSubTab('gang-media', 'gang-content', this)">MÉDIA</button>
-                <button class="sub-tab-btn" onclick="openSubTab('gang-grande', 'gang-content', this)">GRANDE</button>
+            <div class="category-header">
+                <h2 class="text-gradient">LOJA DE GANGUES</h2>
+                <div class="sub-nav">
+                    <button class="sub-tab-btn active" onclick="openSubTab('gangue-pequena', this)">PEQUENA</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('gangue-media', this)">MÉDIA</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('gangue-grande', this)">GRANDE</button>
+                </div>
             </div>
 
-            <div id="gang-pequena" class="gang-content tab-pane active">
+            <div id="gangue-pequena" class="category-content active">
                 <div class="product-compact-card">
-                    <div class="card-image" style="background-image: url('images/Gangues/gangue_pequena.png');"></div>
-                    <div class="card-details">
-                        <h2>GANGUE PEQUENA</h2>
+                    <div class="card-image-container" style="background-image: url('images/Gangues/gangue_pequena.png');"></div>
+                    <div class="card-details-wrapper">
+                        <h3>GANGUE PEQUENA</h3>
                         <div class="plan-selector">
-                            <button class="plan-btn active" onclick="updatePrice(this, 15, '30 Dias', 'Gangue Pequena')">30 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 35, '90 Dias', 'Gangue Pequena')">90 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 80, 'Anual', 'Gangue Pequena')">ANUAL</button>
+                            <button class="plan-btn active" onclick="updatePrice(this, 15, '30 Dias', 'Gangue Pequena')">30D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 35, '90 Dias', 'Gangue Pequena')">90D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 80, 'Anual', 'Gangue Pequena')">ANUAL</button>
                         </div>
-                        <ul class="benefits-list">
+                        <ul class="benefits-grid">
                             <li><i class="fas fa-map"></i> QG Mapeado pelo Servidor</li>
                             <li><i class="fas fa-tshirt"></i> 1 Skin na Gang</li>
                             <li><i class="fas fa-gun"></i> AK47 e MP5 (Vida/Colete)</li>
                             <li><i class="fas fa-tags"></i> 2 Tags Personalizadas</li>
-                            <li><i class="fas fa-times-circle" style="color: #ff4d4d;"></i> Não acompanha veículo</li>
+                            <li><i class="fas fa-times-circle" style="color:red"></i> Não acompanha veículo</li>
                         </ul>
-                        <button class="buy-btn" onclick="openCheckout('Gangue Pequena (30 Dias)', 15)">
-                            <span>COMPRAR</span><strong class="price-display">R$ 15,00</strong>
+                        <button class="buy-bar-btn" onclick="openCheckout('Gangue Pequena', 80.00)">
+                            <span>COMPRAR</span> <span class="price-tag-box">R$ 80,00</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div id="gang-media" class="gang-content tab-pane">
+            <div id="gangue-media" class="category-content" style="display:none;">
                 <div class="product-compact-card">
-                    <div class="card-image" style="background-image: url('images/Gangues/gangue_media.png');"></div>
-                    <div class="card-details">
-                        <h2>GANGUE MÉDIA</h2>
+                    <div class="card-image-container" style="background-image: url('images/Gangues/gangue_media.png');"></div>
+                    <div class="card-details-wrapper">
+                        <h3>GANGUE MÉDIA</h3>
                         <div class="plan-selector">
-                            <button class="plan-btn active" onclick="updatePrice(this, 25, '30 Dias', 'Gangue Média')">30 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 60, '90 Dias', 'Gangue Média')">90 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 150, 'Anual', 'Gangue Média')">ANUAL</button>
+                            <button class="plan-btn active" onclick="updatePrice(this, 25, '30 Dias', 'Gangue Média')">30D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 60, '90 Dias', 'Gangue Média')">90D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 150, 'Anual', 'Gangue Média')">ANUAL</button>
                         </div>
-                        <ul class="benefits-list">
+                        <ul class="benefits-grid">
                             <li><i class="fas fa-map"></i> QG/Favela (Você escolhe o mapa)</li>
                             <li><i class="fas fa-tshirt"></i> 2 Skins na Gang</li>
                             <li><i class="fas fa-car"></i> 1 Veículo na Gang</li>
                             <li><i class="fas fa-gun"></i> AK47, MP5, Deagle</li>
                             <li><i class="fas fa-tags"></i> 3 Tags Personalizadas</li>
                         </ul>
-                        <button class="buy-btn" onclick="openCheckout('Gangue Média (30 Dias)', 25)">
-                            <span>COMPRAR</span><strong class="price-display">R$ 25,00</strong>
+                        <button class="buy-bar-btn" onclick="openCheckout('Gangue Média', 25.00)">
+                            <span>COMPRAR</span> <span class="price-tag-box">R$ 25,00</span>
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div id="gang-grande" class="gang-content tab-pane">
+            <div id="gangue-grande" class="category-content" style="display:none;">
                 <div class="product-compact-card">
-                    <div class="card-image" style="background-image: url('images/Gangues/gangue_grande.png');"></div>
-                    <div class="card-details">
-                        <h2>GANGUE GRANDE</h2>
+                <div class="card-image-container" style="background-image: url('images/Gangues/gangue_grande.png');"></div>
+                <div class="card-details-wrapper">
+                    <div class="header-with-badge">
+                        <h3>GANGUE GRANDE</h3>
+                    </div>
+                    
+                    <div class="plan-selector">
+                        <button class="plan-btn active" onclick="updatePrice(this, 35.00, '30 Dias', 'Gangue Grande')">30 DIAS</button>
+                        <button class="plan-btn" onclick="updatePrice(this, 80.00, '90 Dias', 'Gangue Grande')">90 DIAS</button>
+                        <button class="plan-btn" onclick="updatePrice(this, 250.00, 'Anual', 'Gangue Grande')">ANUAL</button>
+                    </div>
+
+                    <ul class="benefits-grid">
+                        <li><i class="fas fa-map-marked-alt"></i> QG/Favela/Base (Mapa à sua escolha)</li>
+                        <li><i class="fas fa-tshirt"></i> 3 Skins exclusivas para a Gangue</li>
+                        <li><i class="fas fa-car-side"></i> 2 Veículos personalizados no QG</li>
+                        <li><i class="fas fa-gun"></i> Arsenal: AK47, MP5, Deagle, Shotgun, Sniper</li>
+                        <li><i class="fas fa-tags"></i> 5 Tags Personalizadas no chat</li>
+                    </ul>
+
+                    <button class="buy-bar-btn" onclick="openCheckout('Gangue Grande (30 Dias)', 35.00)">
+                        <span>COMPRAR</span> 
+                        <span class="price-tag-box">R$ 35,00</span>
+                    </button>
+                </div>
+            </div>
+            </section>
+
+        <section id="cat-corps" class="main-container">
+            <div class="category-header">
+                <h2 class="text-gradient">LOJA DE CORPORAÇÕES</h2>
+                <div class="sub-nav">
+                    <button class="sub-tab-btn" onclick="openSubTab('corp-media', this)">MÉDIA</button>
+                    <button class="sub-tab-btn" onclick="openSubTab('corp-grande', this)">GRANDE</button>
+                </div>
+            </div>
+            <div id="corp-media" class="category-content" style="display:none;">
+                <div class="product-compact-card">
+                    <div class="card-image-container" style="background-image: url('images/CORPS/corp_MEDIA.png');"></div>
+                    <div class="card-details-wrapper">
+                        <h3>ORGANIZAÇÃO MÉDIA</h3>
                         <div class="plan-selector">
-                            <button class="plan-btn active" onclick="updatePrice(this, 35, '30 Dias', 'Gangue Grande')">30 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 80, '90 Dias', 'Gangue Grande')">90 DIAS</button>
-                            <button class="plan-btn" onclick="updatePrice(this, 250, 'Anual', 'Gangue Grande')">ANUAL</button>
+                            <button class="plan-btn active" onclick="updatePrice(this, 25, '30 Dias', 'Corp Média')">30D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 60, '90 Dias', 'Corp Média')">90D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 150, 'Anual', 'Corp Média')">ANUAL</button>
                         </div>
-                        <ul class="benefits-list">
-                            <li><i class="fas fa-chess-king"></i> QG/Favela/Base (Mapa Livre)</li>
-                            <li><i class="fas fa-tshirt"></i> 3 Skins na Gang</li>
-                            <li><i class="fas fa-car-side"></i> 2 Veículos na Gang</li>
-                            <li><i class="fas fa-gun"></i> Arsenal: AK47, MP5, Deagle, Shotgun, Sniper</li>
-                            <li><i class="fas fa-tags"></i> 5 Tags Personalizadas</li>
+                        <ul class="benefits-grid">
+                            <li><i class="fas fa-map-marked-alt"></i> Base/Setor (Escolha entre mapas disponíveis)</li>
+                            <li><i class="fas fa-users-cog"></i> 2 Skins de Org</li>
+                            <li><i class="fas fa-car-side"></i> 1 Veículo da Corporação</li>
+                            <li><i class="fas fa-hand-holding-usd"></i> Salário Bonificado</li>
+                            <li><i class="fas fa-tags"></i> 3 Tags Personalizadas</li>
                         </ul>
-                        <button class="buy-btn" onclick="openCheckout('Gangue Grande (30 Dias)', 35)">
-                            <span>COMPRAR</span><strong class="price-display">R$ 35,00</strong>
+                        <button class="buy-bar-btn" onclick="openCheckout('Org Média', 120.00)">
+                            <span>ADQUIRIR AGORA</span> <span class="price-tag-box">R$ 120,00</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="corp-grande" class="category-content" style="display:none;">
+                <div class="product-compact-card">
+                    <div class="card-image-container" style="background-image: url('images/CORPS/corp_GRANDE.png');"></div>
+                    <div class="card-details-wrapper">
+                        <h3>ORGANIZAÇÃO GRANDE</h3>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="updatePrice(this, 25, '30 Dias', 'Corp Grande')">30D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 60, '90 Dias', 'Corp Grande')">90D</button>
+                            <button class="plan-btn " onclick="updatePrice(this, 150, 'Anual', 'Corp Grande')">ANUAL</button>
+                        </div>
+                        <ul class="benefits-grid">
+                            <li><i class="fas fa-city"></i> Base Customizada (Mapa Livre)</li>
+                            <li><i class="fas fa-user-secret"></i> 4 Skins Personalizadas</li>
+                            <li><i class="fas fa-helicopter"></i> 2 Veículos + 1 Rocam/Helicóptero</li>
+                            <li><i class="fas fa-crown"></i> Painel de Liderança Completo</li>
+                            <li><i class="fas fa-comments"></i> 5 Tags Personalizadas</li>
+                        </ul>
+                        <button class="buy-bar-btn" onclick="openCheckout('Org Grande', 250.00)">
+                            <span>ADQUIRIR AGORA</span> <span class="price-tag-box">R$ 250,00</span>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <section id="cat-vips" class="main-container">
             <h2 class="text-gradient">LOJA DE VIPS</h2>
@@ -195,7 +251,7 @@
                             <li><i class="fas fa-car"></i> 1 Veículo</li>
                         </ul>
                         <button class="buy-btn" onclick="openCheckout('VIP PRO (30 Dias)', 10)">
-                            <span>ATIVAR</span><strong class="price-display">R$ 10,00</strong>
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 10,00</strong>
                         </button>
                     </div>
                 </div>
@@ -215,7 +271,7 @@
                             <li><i class="fas fa-car"></i> Carro + Moto + Prancha</li>
                         </ul>
                         <button class="buy-btn" onclick="openCheckout('VIP NOBRE (30 Dias)', 15)">
-                            <span>ATIVAR</span><strong class="price-display">R$ 15,00</strong>
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 15,00</strong>
                         </button>
                     </div>
                 </div>
@@ -235,7 +291,7 @@
                             <li><i class="fas fa-gun"></i> Pack Armas (Incluso Sniper)</li>
                         </ul>
                         <button class="buy-btn" onclick="openCheckout('VIP OSTENTAÇÃO (30 Dias)', 25)">
-                            <span>ATIVAR</span><strong class="price-display">R$ 25,00</strong>
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 25,00</strong>
                         </button>
                     </div>
                 </div>
@@ -255,7 +311,7 @@
                             <li><i class="fas fa-coins"></i> Maior Salário</li>
                         </ul>
                         <button class="buy-btn" onclick="openCheckout('VIP PATRÃO (30 Dias)', 40)">
-                            <span>ATIVAR</span><strong class="price-display">R$ 40,00</strong>
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 40,00</strong>
                         </button>
                     </div>
                 </div>
@@ -263,7 +319,7 @@
                 <div class="vip-card legendary-card">
                     <div class="card-image" style="background-image: url('images/VIPS/vip_Legendary.png');"></div>
                     <div class="card-details">
-                        <h2 class="text-gradient">VIP LEGENDARY</h2>
+                        <h2>VIP LEGENDARY</h2>
                         <div class="plan-selector">
                             <button class="plan-btn active" onclick="updatePrice(this, 60, '60 Dias', 'VIP LEGENDARY')">60D</button>
                             <button class="plan-btn" onclick="updatePrice(this, 99, 'Permanente', 'VIP LEGENDARY')">PERM</button>
@@ -275,7 +331,7 @@
                             <li><i class="fas fa-star"></i> Sabre de Luz e Laser</li>
                         </ul>
                         <button class="buy-btn" onclick="openCheckout('VIP LEGENDARY (60 Dias)', 60)">
-                            <span>ATIVAR</span><strong class="price-display">R$ 60,00</strong>
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 60,00</strong>
                         </button>
                     </div>
                 </div>
@@ -293,7 +349,7 @@
                         <h2 class="maintenance-title">SISTEMA EM <span class="text-gradient">DESENVOLVIMENTO</span></h2>
                         <div class="maintenance-divider"></div>
                         <p class="maintenance-text">
-                            Estamos preparando uma plataforma exclusiva para a compra de <strong>ID's Personalizados</strong> e <strong>Tags Personalizadas</strong>.
+                            Estamos preparando uma plataforma exclusiva para a compra de <strong>Tags Personalizadas</strong>.
                         </p>
                         <div class="maintenance-status">
                             <span class="pulse-dot"></span>
