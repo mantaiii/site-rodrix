@@ -43,7 +43,7 @@
             <button class="side-btn" onclick="navigate('cat-vips')"><i class="fas fa-crown"></i> <span>Vips</span></button>
             <button class="side-btn" onclick="navigate('cat-corps')"><i class="fas fa-shield"></i> <span>Corps</span></button>
             <button class="side-btn" onclick="navigate('cat-gangues')"><i class="fas fa-users"></i> <span>Gangues</span></button>
-            <button class="side-btn" onclick="navigate('cat-ids')"><i class="fas fa-portrait"></i> <span>Tags</span></button>
+            <button class="side-btn" onclick="navigate('cat-exclusivos')"><i class="fas fa-portrait"></i> <span>Exclusivos</span></button>
             <p class="nav-title">AJUDA</p>
             <button class="side-btn" onclick="navigate('suporte')"><i class="fas fa-headset"></i> <span>Suporte</span></button>
         </nav>
@@ -218,8 +218,7 @@
                         </div>
                         <ul class="benefits-grid">
                             <li><i class="fas fa-city"></i> Base Customizada (Mapa Livre)</li>
-                            <li><i class="fas fa-user-secret"></i> 4 Skins Personalizadas</li>
-                            <li><i class="fas fa-helicopter"></i> 2 Veículos + 1 Rocam/Helicóptero</li>
+                            <li><i class="fas fa-user-secret"></i> 4 Skins Personalizadas</li>tero</li>
                             <li><i class="fas fa-crown"></i> Painel de Liderança Completo</li>
                             <li><i class="fas fa-comments"></i> 5 Tags Personalizadas</li>
                         </ul>
@@ -338,23 +337,63 @@
             </div>
         </section>
 
-        <section id="cat-ids" class="main-container">
-            <div class="maintenance-wrapper">
-                <div class="maintenance-card">
-                    <div class="maintenance-glow"></div>
-                    <div class="maintenance-content">
-                        <div class="icon-box-animated">
-                            <i class="fas fa-cog animate-spin-slow"></i>
+        <section id="cat-exclusivos" class="main-container">
+            <h2 class="text-gradient">LOJA DE EXCLUSIVOS</h2>
+            <div class="exclusivos-grid">
+                <div class="exclusivos-card">
+                    <div class="card-image-exclusivos" style="background-image: url('images/Exclusivos/TAG_ADD_PRIVADA_CAPITAL.png');"></div>
+                    <div class="card-details">
+                        <h2>TAG PRIVADA</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="updatePrice(this, 30, 'Permanente', 'TAG PRIVADA')">PERM</button>
                         </div>
-                        <h2 class="maintenance-title">SISTEMA EM <span class="text-gradient">DESENVOLVIMENTO</span></h2>
-                        <div class="maintenance-divider"></div>
-                        <p class="maintenance-text">
-                            Estamos preparando uma plataforma exclusiva para a compra de <strong>Tags Personalizadas</strong>.
-                        </p>
-                        <div class="maintenance-status">
-                            <span class="pulse-dot"></span>
-                            <span class="status-label">DISPONÍVEL EM BREVE</span>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-star"></i> Tag destacada no chat</li>
+                            <li><i class="fas fa-palette"></i> Cor personalizada da escrita no chat</li>
+                            <li><i class="fas fa-portrait"></i> Tag em cima do personagem</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('TAG PRIVADA (Permanente)', 30)">
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 30,00</strong>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exclusivos-card">
+                    <div class="card-image-exclusivos" style="background-image: url('images/Exclusivos/skin_ADD_PRIVADA_CAPITAL.png');"></div>
+                    <div class="card-details">
+                        <h2>SKIN PRIVADA</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="updatePrice(this, 10, '30 Dias', 'SKIN PRIVADA')">30D</button>
+                            <button class="plan-btn" onclick="updatePrice(this, 20, '60 Dias', 'SKIN PRIVADA')">60D</button>
+                            <button class="plan-btn" onclick="updatePrice(this, 80, 'Permanente', 'SKIN PRIVADA')">PERM</button>
                         </div>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-cloud-download"></i> Peso maximo de 5MB</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Proibido skins +18</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('SKIN PRIVADA (30 Dias)', 10)">
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 10,00</strong>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="exclusivos-card">
+                    <div class="card-image-exclusivos" style="background-image: url('images/Exclusivos/CARRO_ADD_2_PRIVADA_CAPITAL.png');"></div>
+                    <div class="card-details">
+                        <h2>CARRO PRIVADO</h2>
+                        <div class="plan-selector">
+                            <button class="plan-btn active" onclick="updatePrice(this, 20, '30 Dias', 'CARRO PRIVADO')">30D</button>
+                            <button class="plan-btn" onclick="updatePrice(this, 35, '60 Dias', 'CARRO PRIVADO')">60D</button>
+                            <button class="plan-btn" onclick="updatePrice(this, 160, 'Permanente', 'CARRO PRIVADO')">PERM</button>
+                        </div>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-portrait"></i> Peso máximo de 10MB</li>
+                            <li><i class="fas fa-palette"></i> Veículo pode ser personalizado a plotagem</li>
+                            <li><i class="fas fa-gun"></i> ID do veículo pode ser escolhido por você</li>
+                        </ul>
+                        <button class="buy-btn" onclick="openCheckout('CARRO PRIVADO (30 Dias)', 20)">
+                            <span>ATIVAR</span><strong class="price-tag-box">R$ 20,00</strong>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -403,7 +442,7 @@
     <div class="modal-card">
         <h2 id="modal-title">Finalizar</h2>
         <p id="modal-price" class="final-price"></p>
-        <input type="text" id="player-id" placeholder="DIGITE SEU ID (EX: @NOME#123)" class="input-field">
+        <input type="text" id="player-id" placeholder="DIGITE SEU ID (EX: +123)" class="input-field">
         
         <div id="pix-qr-container" style="display:none; margin: 20px 0;">
             <img id="pix-qr-img" src="" alt="QR Code Pix" style="width:200px; height:200px; border:5px solid #fff; border-radius:10px;">
@@ -417,5 +456,4 @@
 
 <script src="script.js"></script>
 </body>
-
 </html>

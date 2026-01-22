@@ -583,6 +583,154 @@ body {
     font-size: 1rem;
 }
 
+#cat-exclusivos h2.text-gradient {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+}
+
+.exclusivos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    padding-bottom: 10px;
+}
+
+.exclusivos-card {
+    background: rgba(15, 15, 18, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+.card-image-exclusivos{
+    height: 350px;
+    margin-bottom: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
+}
+.exclusivos-card .card-details {
+    padding: 30px; /* Aumentado para dar mais respiro lateral */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço automático entre os elementos internos */
+}
+
+.exclusivos-card .plan-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.exclusivos-card .plan-btn {
+    padding: 10px 14px; /* Menor para não dominar o card */
+    font-size: 0.9rem;
+}
+
+.exclusivos-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(98, 0, 238, 0.2);
+}
+
+.exclusivos-card .card-image {
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 10px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
+}
+.exclusivos-card .buy-btn {
+    width: 90%;              /* Menor, para dar o respiro que você pediu */
+    margin: 20px auto 0 auto;/* Centraliza o botão no card */
+    padding: 12px 15px;      /* Mais baixo e elegante */
+    justify-content: center; /* Centraliza o conteúdo (Ativar + Preço) */
+    gap: 12px;               /* Espaço entre Ativar e Preço */
+}
+
+.exclusivos-card .price-display {
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.15); /* Fundo sutil para destacar o valor */
+    padding: 5px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    color: #fff;
+}
+
+.exclusivos-card .buy-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+    box-shadow: 0 5px 15px rgba(98, 0, 238, 0.4);
+}
+
+.exclusivos-card .card-image {
+    height: 210px;
+    margin-bottom: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
+}
+
+.exclusivos-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.exclusivos-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+}
+
+.exclusivos-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.exclusivos-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    width: 100%;
+}
+
+.exclusivos-features li {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* Responsividade: Empilhar em telas pequenas */
+@media (max-width: 768px) {
+    .product-compact-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .card-image {
+        height: 250px;
+        border-right: none;
+        border-bottom: 1px solid rgba(98, 0, 238, 0.3);
+    }
+}
+
 /* MODAL */
 .modal-overlay {
     display: none;
@@ -702,143 +850,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* ABA DE MANUTENÇÃO */
-.maintenance-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh; /* Ocupa mais espaço para centralizar melhor */
-    width: 100%;
-}
-
-/* O CARD DE MANUTENÇÃO */
-.maintenance-card {
-    position: relative;
-    background: #0f0f12;
-    padding: 70px 50px; /* Aumentado para dar mais destaque ao centro */
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-    max-width: 550px;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-}
-
-/* BRILHO DE FUNDO (GLOW) */
-.maintenance-glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(98, 0, 238, 0.15) 0%, transparent 70%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.maintenance-content {
-    position: relative;
-    z-index: 2;
-}
-
-/* ÍCONE ANIMADOS */
-.icon-box-animated {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 35px;
-    height: 100px; /* Garante um respiro fixo para o ícone */
-}
-.animate-spin-slow {
-    font-size: 5rem; /* Tamanho mantido conforme solicitado */
-    color: var(--primary);
-    animation: fa-spin 10s infinite linear; /* Giro ainda mais suave e elegante */
-    filter: drop-shadow(0 0 20px rgba(98, 0, 238, 0.6));
-    opacity: 0.9;
-}
-@keyframes fa-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-@keyframes wrench {
-
-    0%,
-    100% {
-        transform: rotate(-12deg);
-    }
-
-    50% {
-        transform: rotate(25deg);
-    }
-}
-
-.maintenance-title {
-    font-size: 2.5rem; /* Um pouco maior para destaque */
-    font-weight: 900;
-}
-
-.maintenance-divider {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--primary), transparent);
-    margin: 25px auto;
-}
-
-.maintenance-text {
-    max-width: 450px; /* Evita que o texto fique muito largo */
-    margin: 0 auto 35px auto;
-}
-@keyframes fa-spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-/* BADGE DE STATUS COM PULSO */
-.maintenance-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(98, 0, 238, 0.1);
-    padding: 12px 25px;
-    border-radius: 50px;
-    border: 1px solid rgba(98, 0, 238, 0.3);
-}
-
-.pulse-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--primary);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--primary);
-    animation: dotPulse 1.5s infinite;
-}
-
-.status-label {
-    font-weight: 900;
-    font-size: 0.9rem;
-    color: #fff;
-    letter-spacing: 2px;
-}
-
-/* NOVAS ANIMAÇÕES */
-@keyframes dotPulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.5);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-
 /* TABS E AUXILIARES */
 .sub-nav {
     display: flex;
@@ -906,21 +917,6 @@ body {
     display: block;
 }
 
-.animate-wrench {
-    animation: wrench 2s infinite ease-in-out;
-}
-
-@keyframes wrench {
-
-    0%,
-    100% {
-        transform: rotate(-10deg);
-    }
-
-    50% {
-        transform: rotate(20deg);
-    }
-}
 
 .category-header {
     margin-bottom: 30px;
