@@ -102,6 +102,8 @@ body {
     display: flex;
     flex-direction: column;
     white-space: nowrap; /* Impede o texto de quebrar linha durante a animação */
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: width;
 }
 
 .sidebar:hover {
@@ -130,7 +132,19 @@ body {
     padding: 40px;
     transition: margin-left 0.4s; /* Acompanha a expansão se necessário */
 }
-
+.main-content::-webkit-scrollbar {
+    width: 12px;
+}
+.main-content::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+.main-content::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+}
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
 .side-btn {
     width: 100%;
     display: flex;
@@ -150,6 +164,9 @@ body {
     min-width: 20px;
     font-size: 1.1rem;
     text-align: center;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .side-btn:hover,
@@ -185,6 +202,106 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Layout da Grade de Resultados */
+#results-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que itens fiquem lado a lado ou um embaixo do outro */
+    gap: 25px;
+    width: 100%;
+    align-items: stretch;
+}
+#results-grid > div {
+    width: 100% !important;
+    margin: 0 !important;
+}
+#results-grid .vip-card, 
+#results-grid .exclusivos-card {
+    flex: 1 1 calc(33.333% - 25px); /* Tenta colocar 3 por linha no desktop */
+    min-width: 300px; /* Não deixa o card ficar esmagado */
+    max-width: 400px;
+}
+#results-grid .product-compact-card,
+#results-grid .vip-card {
+    animation: slideInUp 0.4s ease forwards;
+}
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#results-grid .vip-card, 
+#results-grid .exclusivos-card {
+    flex: 1 1 calc(33.333% - 25px); /* Tenta colocar 3 por linha no desktop */
+    min-width: 300px; /* Não deixa o card ficar esmagado */
+    max-width: 400px;
+}
+@media (max-width: 1100px) {
+    #results-grid .vip-card, 
+    #results-grid .exclusivos-card {
+        flex: 1 1 calc(50% - 25px); /* 2 por linha em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    #results-grid .vip-card, 
+    #results-grid .exclusivos-card,
+    #results-grid .product-compact-card {
+        flex: 1 1 100%; /* Tudo em uma coluna no celular */
+        flex-direction: column;
+    }
+}
+.search-container {
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    position: relative;
+}
+
+.search-container:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(98, 0, 238, 0.2);
+    width: 450px; /* Expande levemente ao clicar */
+}
+
+/* Efeito quando o input NÃO está vazio */
+.search-container.has-text {
+    border-color: var(--accent);
+    background: #1e1e24;
+}
+
+.search-container input::placeholder {
+    color: #555;
+    transition: 0.3s;
+}
+
+.search-container:focus-within input::placeholder {
+    opacity: 0.5;
+    transform: translateX(5px);
+}
+
+#search-results-container {
+    padding: 20px;
+}
+
+.search-header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #222;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#search-count {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
 
 /* CARDS E APRESENTAÇÃO */
 .heroic-size { 
@@ -376,8 +493,8 @@ body {
 }
 
 .vip-card {
-    background: rgba(15, 15, 18, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 15, 18, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slightly brighter border */
     border-radius: 20px;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1107,6 +1224,80 @@ body {
 .support-link-card:hover .arrow-icon {
     color: var(--primary);
     transform: translateX(5px);
+}
+
+/* --- ESTILO ADICIONAL PARA CHECKOUT PIX --- */
+
+/* Container do QR Code dentro do Modal */
+#pix-qr-container {
+    background: #16161a;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    border: 1px dashed var(--primary);
+}
+
+/* Imagem do QR Code */
+#pix-qr-img {
+    width: 220px;
+    height: 220px;
+    border: 8px solid #fff; /* Borda branca clássica para leitura de QR Code */
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Estilo do campo "Copia e Cola" que será gerado via JS */
+#pix-input-copia {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem !important;
+    text-align: center;
+    background: #000 !important;
+    border: 1px solid #333 !important;
+    color: var(--accent) !important;
+    cursor: text;
+}
+
+/* Botão de Copiar Código */
+.copy-btn-pix {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.copy-btn-pix:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Ajuste no Input de ID do Jogador */
+#player-id {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-color: #222;
+    transition: 0.3s;
+}
+
+#player-id:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(98, 0, 238, 0.3);
+}
+
+/* Status de Carregamento no Botão */
+#main-action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #333;
 }
 
 .minimal-footer {

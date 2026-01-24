@@ -21,7 +21,7 @@
     
     <div class="header-center">
         <div class="search-container">
-            <input type="text" id="site-search" placeholder="O que você está procurando?" onkeyup="searchProducts()">
+            <input type="text" id="site-search" oninput="searchProducts()" placeholder="Buscar produto...">
             <button type="button"><i class="fas fa-search"></i></button>
         </div>
     </div>
@@ -38,18 +38,27 @@
     <aside class="sidebar">
         <nav class="side-nav">
             <p class="nav-title">MENU</p>
-            <button class="side-btn active" onclick="navigate('home')"><i class="fas fa-home"></i> <span>Início</span></button>
+            <button class="side-btn active" onclick="navigate('home', this)"><i class="fas fa-home"></i> <span>Início</span></button>
             <p class="nav-title">LOJA CAPITAL FUGAS</p>
-            <button class="side-btn" onclick="navigate('cat-vips')"><i class="fas fa-crown"></i> <span>Vips</span></button>
-            <button class="side-btn" onclick="navigate('cat-corps')"><i class="fas fa-shield"></i> <span>Corps</span></button>
-            <button class="side-btn" onclick="navigate('cat-gangues')"><i class="fas fa-users"></i> <span>Gangues</span></button>
-            <button class="side-btn" onclick="navigate('cat-exclusivos')"><i class="fas fa-portrait"></i> <span>Exclusivos</span></button>
+            <button class="side-btn" onclick="navigate('cat-vips', this)"><i class="fas fa-crown"></i> <span>Vips</span></button>
+            <button class="side-btn" onclick="navigate('cat-corps', this)"><i class="fas fa-shield"></i> <span>Corps</span></button>
+            <button class="side-btn" onclick="navigate('cat-gangues', this)"><i class="fas fa-users"></i> <span>Gangues</span></button>
+            <button class="side-btn" onclick="navigate('cat-exclusivos', this)"><i class="fas fa-portrait"></i> <span>Exclusivos</span></button>
             <p class="nav-title">AJUDA</p>
-            <button class="side-btn" onclick="navigate('suporte')"><i class="fas fa-headset"></i> <span>Suporte</span></button>
+            <button class="side-btn" onclick="navigate('suporte', this)"><i class="fas fa-headset"></i> <span>Suporte</span></button>
         </nav>
     </aside>
 
     <main class="main-content">
+        <section class="">
+            <div id="search-results-container" class="main-container">
+                <div class="category-header">
+                    <h2 class="text-gradient">Resultados da Busca</h2>
+                    <p id="search-count" style="color: #666;"></p>
+                </div>
+                <div id="results-grid" class="vip-grid"></div>
+            </div>
+        </section>
         <section id="home" class="main-container active">
             <div class="presentation-card heroic-size">
                 <div class="hero-content">
@@ -113,8 +122,8 @@
                             <li><i class="fas fa-tags"></i> 2 Tags Personalizadas</li>
                             <li><i class="fas fa-times-circle" style="color:red"></i> Não acompanha veículo</li>
                         </ul>
-                        <button class="buy-bar-btn" onclick="openCheckout('Gangue Pequena', 80.00)">
-                            <span>COMPRAR</span> <span class="price-tag-box">R$ 80,00</span>
+                        <button class="buy-bar-btn" onclick="openCheckout('Gangue Pequena', 15.00)">
+                            <span>COMPRAR</span> <span class="price-tag-box">R$ 15,00</span>
                         </button>
                     </div>
                 </div>
